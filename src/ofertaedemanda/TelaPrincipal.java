@@ -306,14 +306,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void btnEditarTabelaDistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarTabelaDistActionPerformed
         // TODO add your handling code here:
+        
         for (int i = 0; i < redeDist.fabricas.size(); i++) {
 
             for (int j = 0; j < redeDist.centros.size(); j++) {
                 int quant;
                 
-                // Limpando dados anteriores
-                redeDist.fabricas.get(i).setOfertaAtual(redeDist.fabricas.get(i).getOferta());
-                redeDist.centros.get(j).setDemandaAtual(redeDist.centros.get(j).getDemanda());
 
                 quant = Integer.parseInt(
                     JOptionPane.showInputDialog(btnEditarTabelaDist,

@@ -39,15 +39,6 @@ public class RedeDist {
         }
         return true;
     }
-
-    //<editor-fold desc="Getters e Setters">
-    public void addFabrica(Fabrica fabrica) {
-        fabricas.add(fabrica);
-    }
-
-    public void addCentroDist(CentroDist centroDist) {
-        centros.add(centroDist);
-    }
     
     // Testar se o id ja foi atribuido
     public boolean idTestFabrica(int id){
@@ -65,6 +56,32 @@ public class RedeDist {
             }
         }
         return false;
-    }    
+    }
+
+    public void limparTabelaDist() {
+        for (int i = 0; i < fabricas.size(); i++) {
+
+            for (int j = 0; j < centros.size(); j++) {
+                fabricas.get(i).setOfertaAtual(fabricas.get(i).getOferta());
+                centros.get(j).setDemandaAtual(centros.get(j).getDemanda());
+            }
+        }
+    }
+    
+    public void limparTabelaCustos() {
+        for (int i=0; i < fabricas.size(); i++) {
+            fabricas.get(i).custosTransporte.clear();
+        }
+    }
+
+    //<editor-fold desc="Getters e Setters">
+    public void addFabrica(Fabrica fabrica) {
+        fabricas.add(fabrica);
+    }
+
+    public void addCentroDist(CentroDist centroDist) {
+        centros.add(centroDist);
+    }
+    
     //</editor-fold>
 }
