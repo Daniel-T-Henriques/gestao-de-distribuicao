@@ -305,7 +305,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtOfertaOuDemandaActionPerformed
 
     private void btnEditarTabelaDistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarTabelaDistActionPerformed
-        // TODO add your handling code here:
+
+        // Limpando a tabela de distribuição
+        redeDist.limparTabelaDist();
         
         for (int i = 0; i < redeDist.fabricas.size(); i++) {
 
@@ -348,17 +350,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         if (redeDist.testarCaso()) {
             JOptionPane.showMessageDialog(btnTestarCaso, "O CASO ATUAL É VÁLIDO!");
         } else {
-            JOptionPane.showMessageDialog(btnTestarCaso, "O CASO ATUAL É INVÁLIDO!");
+            JOptionPane.showMessageDialog(btnTestarCaso, "O CASO ATUAL NÃO É VÁLIDO!");
         }
     }//GEN-LAST:event_btnTestarCasoActionPerformed
 
     private void btnEditarTabelaCustosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarTabelaCustosActionPerformed
-        // TODO add your handling code here:
-
+        
+        // Limpando tabela de custos
+        //redeDist.limparTabelaCustos();
         
         for (int i = 0; i < redeDist.fabricas.size(); i++) {
-            // Limpando dados anteriores
-            redeDist.fabricas.get(i).custosTransporte.clear();
 
             for (int j = 0; j < redeDist.centros.size(); j++) {
                 float custo;
