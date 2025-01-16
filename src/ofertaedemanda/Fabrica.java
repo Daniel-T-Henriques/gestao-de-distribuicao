@@ -12,16 +12,21 @@ public class Fabrica {
     private String nome;
     private int oferta;
     private int ofertaAtual;
+    private int idAtual = 0;
     public ArrayList<Float> custosTransporte = new ArrayList<>();
     public ArrayList<Integer> quantsTransporte = new ArrayList<>();
 
-    public Fabrica(int id, String nome, int oferta) {
-        this.id = id;
+    public Fabrica(String nome, int oferta) {
+        this.id = gerarId(idAtual);
         this.nome = nome;
         this.oferta = oferta;
         ofertaAtual = oferta;
     }
 
+    private static int gerarId(int idAtual) {
+        return idAtual++;
+    }
+    
     //<editor-fold desc="Getters e Setters">
     public int getId() {
         return id;
