@@ -21,7 +21,7 @@ public class Fabrica {
         this.oferta = oferta;
         ofertaAtual = oferta;
     }
-
+    
     //<editor-fold desc="Getters e Setters">
     public int getId() {
         return id;

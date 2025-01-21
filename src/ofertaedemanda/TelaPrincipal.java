@@ -1,5 +1,9 @@
 package ofertaedemanda;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /*
@@ -9,9 +13,54 @@ import javax.swing.JOptionPane;
 public class TelaPrincipal extends javax.swing.JFrame {
 
     RedeDist redeDist = new RedeDist();
+    BancoDeDados bancoDeDados = new BancoDeDados();
 
     public TelaPrincipal() {
         initComponents();
+        
+        // Lendo fabricas.csv
+        try {
+            bancoDeDados.carregarDadosDoArquivo("fabricas.csv", "fabrica", redeDist);
+        } catch (IOException ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //<editor-fold desc="Adicionando ao console">
+        for(int i=0; i < redeDist.fabricas.size(); i++) {
+            int id = redeDist.fabricas.get(i).getId();
+            String nome = redeDist.fabricas.get(i).getNome();
+            int oferta = redeDist.fabricas.get(i).getOferta();
+            
+            // Adicionando ao console
+            txtConsole.append("\nNova fábrica adicionada: (id=" + id
+                    + ", nome=\"" + nome
+                    + "\", oferta=" + oferta + ")");
+            
+            // Adicionando na lista
+            txtFabricas.append(nome + "\n");
+        }
+        //</editor-fold>
+        
+        // Lendo centrosDist.csv
+        try {
+            bancoDeDados.carregarDadosDoArquivo("centrosDist.csv", "centrosDist", redeDist);
+        } catch (IOException ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //<editor-fold desc="Adicionando ao console">
+        for (int i=0; i<redeDist.centros.size(); i++) {
+            int id = redeDist.centros.get(i).getId();
+            String nome = redeDist.centros.get(i).getNome();
+            int demanda = redeDist.centros.get(i).getDemanda();
+            
+            
+            txtConsole.append("\nNovo centro de distribuição adicionado: (id=" + id
+                    + ", nome=\""+ nome + "\""
+                    +", demanda=" + demanda + ")");
+
+            // Adicionando na lista
+            txtCentros.append(nome + "\n");
+        }
+        //</editor-fold>
     }
 
     @SuppressWarnings("unchecked")
@@ -255,7 +304,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     + "\", oferta=" + oferta + ")");
             
             // Adicionando na lista
-            txtFabricas.append(novaFabrica.getNome() + "\n");
+            txtFabricas.append(nome + "\n");
         }
     }//GEN-LAST:event_btnNovaFabricaActionPerformed
 
@@ -288,7 +337,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     +", demanda=" + demanda + ")");
             
             // Adicionando na lista
-            txtCentros.append(novoCentroDist.getNome() + "\n");
+            txtCentros.append(nome + "\n");
         }
     }//GEN-LAST:event_btnNovoCentroDistActionPerformed
 
