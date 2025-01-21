@@ -10,17 +10,12 @@ public class CentroDist {
     private String nome;
     private int demanda;
     private int demandaAtual;
-    private int idAtual = 0;
 
-    public CentroDist(String nome, int demanda) {
-        this.id = gerarId(idAtual);
+    public CentroDist(int id, String nome, int demanda) {
+        this.id = id;
         this.nome = nome;
         this.demanda = demanda;
         demandaAtual = demanda;
-    }
-    
-    private static int gerarId(int idAtual) {
-        return(idAtual++);
     }
 
     //<editor-fold desc="Getters e Setters">
