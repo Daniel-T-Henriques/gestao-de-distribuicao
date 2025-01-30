@@ -11,7 +11,9 @@ public class RedeDist {
     ArrayList<Fabrica> fabricas = new ArrayList<>();
     ArrayList<CentroDist> centros = new ArrayList<>();
 
-    public RedeDist() {}
+    public RedeDist() {
+    
+    }
     
     public void conectarCentro(){
         for (int i=0; i<this.fabricas.size(); i++){
